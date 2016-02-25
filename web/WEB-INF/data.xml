@@ -8,32 +8,23 @@
                             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
                             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
                             http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
-
-     
-    <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
-     
-    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
-        <!--<property name="driverClassName" value="${jdbc.driverClassName}" />-->
-        <!--<property name="url" value="${jdbc.url}"/>-->
-        <!--<property name="username" value="${jdbc.username}" />-->
-        <!--<property name="password" value="${jdbc.password}"/>-->
-         <!---->
-    <!--</bean>-->
+    <context:annotation-config/>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <bean name="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="configLocation" value="classpath:hibernate.cfg.xml" />
-        <!--<property name="mappingResources">-->
-            <!--<list>-->
-                <!--<value/>-->
-            <!--</list>-->
-        <!--</property>-->
+        <property name="packagesToScan">
+            <list>
+                <value>com.ls.words.data</value>
+            </list>
+        </property>
     </bean>
- 
-    <!--<bean id="transactionManager"  class="org.springframework.orm.hibernate4.HibernateTransactionManager">-->
-        <!--<property name="sessionFactory" ref="sessionFactory" />-->
-    <!--</bean>-->
- <!---->
-    <!--<bean id="persistenceExceptionTranslationPostProcessor"-->
-        <!--class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>-->
-         
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="persistenceExceptionTranslationPostProcessor"
+          class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
 </beans>

@@ -1,12 +1,15 @@
 package com.ls.words.data;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by turenko on 19.02.2016.
  */
-
+@Entity
 public class FileStatistic {
     private Integer id               ;
     private String  longWord         ;
@@ -17,6 +20,11 @@ public class FileStatistic {
     private int     averageWordLenght;
     private List<RowStatistic> rows = null;
 
+    public FileStatistic() {}
+
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
@@ -24,15 +32,7 @@ public class FileStatistic {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    public FileStatistic() {
-        rows = new ArrayList();
-    }
-
-    public FileStatistic(List<RowStatistic> rows) {
-        this.rows = rows;
-    }
-
+    @Column
     public String getLongWord() {
         return longWord;
     }
@@ -40,7 +40,7 @@ public class FileStatistic {
     public void setLongWord(String longWord) {
         this.longWord = longWord;
     }
-
+    @Column
     public String getShortWord() {
         return shortWord;
     }
@@ -48,7 +48,7 @@ public class FileStatistic {
     public void setShortWord(String shortWord) {
         this.shortWord = shortWord;
     }
-
+    @Column
     public Integer getLongWordLenght() {
         return longWordLenght;
     }
@@ -56,7 +56,7 @@ public class FileStatistic {
     public void setLongWordLenght(Integer longWordLenght) {
         this.longWordLenght = longWordLenght;
     }
-
+    @Column
     public Integer getShortWordLenght() {
         return shortWordLenght;
     }
@@ -64,7 +64,7 @@ public class FileStatistic {
     public void setShortWordLenght(Integer shortWordLenght) {
         this.shortWordLenght = shortWordLenght;
     }
-
+    @Column
     public int getRowLenght() {
         return rowLenght;
     }
@@ -72,7 +72,7 @@ public class FileStatistic {
     public void setRowLenght(Integer rowLenght) {
         this.rowLenght = rowLenght;
     }
-
+    @Column
     public Integer getAverageWordLenght() {
         return averageWordLenght;
     }
@@ -80,7 +80,8 @@ public class FileStatistic {
     public void setAverageWordLenght(Integer averageWordLenght) {
         this.averageWordLenght = averageWordLenght;
     }
-
+    @JsonManagedReference
+    @OneToMany(mappedBy = "fileStatistic", cascade = CascadeType.ALL)
     public List<RowStatistic> getRows() {
         return rows;
     }

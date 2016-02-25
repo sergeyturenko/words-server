@@ -22,7 +22,7 @@
       <configuration>
         <datasource-map>
           <unit-entry name="hibernate.cfg.xml" />
-          <unit-entry name="noname-data.xml@1397" />
+          <unit-entry name="noname-data.xml@1404" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
@@ -44,5 +44,6 @@
     <orderEntry type="library" name="Spring MVC-4.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Hibernate 4.2.2-4.2.2" level="project" />
     <orderEntry type="library" name="com.h2database:h2:1.4.189" level="project" />
+    <orderEntry type="library" name="com.fasterxml.jackson.core:jackson-databind:2.4.1.1" level="project" />
   </component>
 </module>

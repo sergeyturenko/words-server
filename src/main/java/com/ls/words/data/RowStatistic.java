@@ -1,13 +1,16 @@
 package com.ls.words.data;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
+
 /**
  * Created by turenko on 19.02.2016.
  */
-
+@Entity
 public class RowStatistic {
     private Integer id               ;
-    private Integer extId            ;
     private String  longWord         ;
     private String  shortWord        ;
     private Integer longWordLenght   ;
@@ -15,19 +18,13 @@ public class RowStatistic {
     private Integer rowLenght        ;
     private Integer averageWordLenght;
     private Integer countWords       ;
+    private FileStatistic fileStatistic;
 
     public RowStatistic() {}
 
-    public RowStatistic(String longWord, String shortWord, Integer longWordLenght, Integer shortWordLenght, Integer rowLenght, Integer averageWordLenght, Integer countWords) {
-        this.longWord          = longWord         ;
-        this.shortWord         = shortWord        ;
-        this.longWordLenght    = longWordLenght   ;
-        this.shortWordLenght   = shortWordLenght  ;
-        this.rowLenght         = rowLenght        ;
-        this.averageWordLenght = averageWordLenght;
-        this.countWords        = countWords       ;
-    }
-
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
@@ -36,14 +33,17 @@ public class RowStatistic {
         this.id = id;
     }
 
-    public Integer getExtId() {
-        return extId;
+    @JsonBackReference
+    @JoinColumn(name = "EXT_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    public FileStatistic getFileStatistic() {
+        return fileStatistic;
     }
 
-    public void setExtId(Integer extId) {
-        this.extId = extId;
+    public void setFileStatistic(FileStatistic fileStatistic) {
+        this.fileStatistic = fileStatistic;
     }
-
+    @Column
     public String getLongWord() {
         return longWord;
     }
@@ -51,7 +51,7 @@ public class RowStatistic {
     public void setLongWord(String longWord) {
         this.longWord = longWord;
     }
-
+    @Column
     public String getShortWord() {
         return shortWord;
     }
@@ -59,7 +59,7 @@ public class RowStatistic {
     public void setShortWord(String shortWord) {
         this.shortWord = shortWord;
     }
-
+    @Column
     public Integer getLongWordLenght() {
         return longWordLenght;
     }
@@ -67,7 +67,7 @@ public class RowStatistic {
     public void setLongWordLenght(Integer longWordLenght) {
         this.longWordLenght = longWordLenght;
     }
-
+    @Column
     public Integer getShortWordLenght() {
         return shortWordLenght;
     }
@@ -75,7 +75,7 @@ public class RowStatistic {
     public void setShortWordLenght(Integer shortWordLenght) {
         this.shortWordLenght = shortWordLenght;
     }
-
+    @Column
     public Integer getRowLenght() {
         return rowLenght;
     }
@@ -83,7 +83,7 @@ public class RowStatistic {
     public void setRowLenght(Integer rowLenght) {
         this.rowLenght = rowLenght;
     }
-
+    @Column
     public Integer getAverageWordLenght() {
         return averageWordLenght;
     }
@@ -91,7 +91,7 @@ public class RowStatistic {
     public void setAverageWordLenght(Integer averageWordLenght) {
         this.averageWordLenght = averageWordLenght;
     }
-
+    @Column
     public Integer getCountWords() {
         return countWords;
     }
@@ -105,7 +105,7 @@ public class RowStatistic {
     public String toString() {
         return "RowStatistic{" +
                 "id=" + id +
-                ", extId=" + extId +
+                ", fileStatistic=" + fileStatistic +
                 ", longWord='" + longWord + '\'' +
                 ", shortWord='" + shortWord + '\'' +
                 ", longWordLenght=" + longWordLenght +
