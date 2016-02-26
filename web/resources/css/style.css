@@ -1,0 +1,7 @@
+.file-summary p {
+    text-align: right;
+}
+
+.fileRow {
+    border: 1px solid black;
+}

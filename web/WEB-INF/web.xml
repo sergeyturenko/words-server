@@ -28,10 +28,5 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
-    <context-param>
-        <param-name>BaseUrl</param-name>
-        <param-value>
-            http://localhost:8080/spring-web-application/
-        </param-value>
-    </context-param>
+
 </web-app>

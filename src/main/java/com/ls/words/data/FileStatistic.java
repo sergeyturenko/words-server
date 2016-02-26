@@ -12,6 +12,7 @@ import java.util.List;
 @Entity
 public class FileStatistic {
     private Integer id               ;
+    private String  fileName         ;
     private String  longWord         ;
     private String  shortWord        ;
     private int     longWordLenght   ;
@@ -32,6 +33,15 @@ public class FileStatistic {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    @Column
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
     @Column
     public String getLongWord() {
         return longWord;
@@ -49,19 +59,19 @@ public class FileStatistic {
         this.shortWord = shortWord;
     }
     @Column
-    public Integer getLongWordLenght() {
+    public int getLongWordLenght() {
         return longWordLenght;
     }
 
-    public void setLongWordLenght(Integer longWordLenght) {
+    public void setLongWordLenght(int longWordLenght) {
         this.longWordLenght = longWordLenght;
     }
     @Column
-    public Integer getShortWordLenght() {
+    public int getShortWordLenght() {
         return shortWordLenght;
     }
 
-    public void setShortWordLenght(Integer shortWordLenght) {
+    public void setShortWordLenght(int shortWordLenght) {
         this.shortWordLenght = shortWordLenght;
     }
     @Column
@@ -69,12 +79,16 @@ public class FileStatistic {
         return rowLenght;
     }
 
-    public void setRowLenght(Integer rowLenght) {
+    public void setRowLenght(int rowLenght) {
         this.rowLenght = rowLenght;
     }
     @Column
-    public Integer getAverageWordLenght() {
+    public int getAverageWordLenght() {
         return averageWordLenght;
+    }
+
+    public void setAverageWordLenght(int averageWordLenght) {
+        this.averageWordLenght = averageWordLenght;
     }
 
     public void setAverageWordLenght(Integer averageWordLenght) {
@@ -94,6 +108,7 @@ public class FileStatistic {
     public String toString() {
         return "FileStatistic{" +
                 "id=" + id +
+                ", fileName='" + fileName + '\'' +
                 ", longWord='" + longWord + '\'' +
                 ", shortWord='" + shortWord + '\'' +
                 ", longWordLenght=" + longWordLenght +
