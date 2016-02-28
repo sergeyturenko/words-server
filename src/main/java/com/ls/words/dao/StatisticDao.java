@@ -1,6 +1,8 @@
 package com.ls.words.dao;
 
-import com.ls.words.data.FileStatistic;
+
+import com.ls.words.model.FileStatistic;
+import com.ls.words.model.RowStatistic;
 
 import java.util.List;
 
@@ -10,4 +12,5 @@ import java.util.List;
 public interface StatisticDao {
     FileStatistic getById(Long id);
     List<FileStatistic> getAll();
+    List<RowStatistic> getAllRowsFileStatistic(Integer id);
 }

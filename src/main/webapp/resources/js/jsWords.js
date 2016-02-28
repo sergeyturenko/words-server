@@ -12,7 +12,7 @@ $(document).ready(function(){
 });
 
 $.ajax({
-    url: 'http://localhost:8080/api/statistic/getAllFileStatistic',
+    url: 'http://localhost:8080/words-server/api/statistic/getAllFileStatistic',
     type: "get",
     dataType: "json",
     success: function(data, textStatus, jqXHR) {
@@ -47,17 +47,7 @@ function drawRow(rowData) {
     row.append($("<td>" + rowData.shortWordLenght + "</td>"));
     row.append($("<td>" + rowData.rowLenght + "</td>"));
     row.append($("<td>" + rowData.averageWordLenght + "</td>"));
+    row.append($("<td>" + rowData.countWords + "</td>"));
     row.append($("<td><div class='arrow'></div></td>"));
-
 }
-$(document).ready(function(){
-    $("#report tr:odd").addClass("odd");
-    $("#report tr:not(.odd)").hide();
-    $("#report tr:first-child").show();
 
-    $("#report tr.odd").click(function(){
-        $(this).next("tr").toggle();
-        $(this).find(".arrow").toggleClass("up");
-    });
-    //$("#report").jExpand();
-});

@@ -1,30 +1,35 @@
-package com.ls.words.data;
+package com.ls.words.dto;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
-import javax.persistence.*;
+import com.ls.words.model.FileStatistic;
 
 /**
  * Created by turenko on 19.02.2016.
  */
-@Entity
-public class RowStatistic {
+
+public class TFileStatistic {
     private Integer id               ;
+    private String  fileName         ;
     private String  longWord         ;
     private String  shortWord        ;
     private Integer longWordLenght   ;
     private Integer shortWordLenght  ;
     private Integer rowLenght        ;
     private Integer averageWordLenght;
-    private Integer countWords       ;
-    private FileStatistic fileStatistic;
 
-    public RowStatistic() {}
+    public TFileStatistic() {}
 
-    @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    public TFileStatistic(FileStatistic fileStatistic) {
+        this.id                = fileStatistic.getId               ();
+        this.fileName          = fileStatistic.getFileName         ();
+        this.longWord          = fileStatistic.getLongWord         ();
+        this.shortWord         = fileStatistic.getShortWord        ();
+        this.longWordLenght    = fileStatistic.getLongWordLenght   ();
+        this.shortWordLenght   = fileStatistic.getShortWordLenght  ();
+        this.rowLenght         = fileStatistic.getRowLenght        ();
+        this.averageWordLenght = fileStatistic.getAverageWordLenght();
+    }
+
     public Integer getId() {
         return id;
     }
@@ -33,17 +38,14 @@ public class RowStatistic {
         this.id = id;
     }
 
-    @JsonBackReference
-    @JoinColumn(name = "EXT_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
-    public FileStatistic getFileStatistic() {
-        return fileStatistic;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setFileStatistic(FileStatistic fileStatistic) {
-        this.fileStatistic = fileStatistic;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
-    @Column
+
     public String getLongWord() {
         return longWord;
     }
@@ -51,7 +53,7 @@ public class RowStatistic {
     public void setLongWord(String longWord) {
         this.longWord = longWord;
     }
-    @Column
+
     public String getShortWord() {
         return shortWord;
     }
@@ -59,7 +61,7 @@ public class RowStatistic {
     public void setShortWord(String shortWord) {
         this.shortWord = shortWord;
     }
-    @Column
+
     public Integer getLongWordLenght() {
         return longWordLenght;
     }
@@ -67,7 +69,7 @@ public class RowStatistic {
     public void setLongWordLenght(Integer longWordLenght) {
         this.longWordLenght = longWordLenght;
     }
-    @Column
+
     public Integer getShortWordLenght() {
         return shortWordLenght;
     }
@@ -75,7 +77,7 @@ public class RowStatistic {
     public void setShortWordLenght(Integer shortWordLenght) {
         this.shortWordLenght = shortWordLenght;
     }
-    @Column
+
     public Integer getRowLenght() {
         return rowLenght;
     }
@@ -83,36 +85,27 @@ public class RowStatistic {
     public void setRowLenght(Integer rowLenght) {
         this.rowLenght = rowLenght;
     }
-    @Column
-    public Integer getAverageWordLenght() {
+
+    public int getAverageWordLenght() {
         return averageWordLenght;
     }
-
     public void setAverageWordLenght(Integer averageWordLenght) {
         this.averageWordLenght = averageWordLenght;
     }
-    @Column
-    public Integer getCountWords() {
-        return countWords;
-    }
 
-    public void setCountWords(Integer countWords) {
-        this.countWords = countWords;
-    }
 
 
     @Override
     public String toString() {
-        return "RowStatistic{" +
+        return "FileStatistic{" +
                 "id=" + id +
-                ", fileStatistic=" + fileStatistic +
+                ", fileName='" + fileName + '\'' +
                 ", longWord='" + longWord + '\'' +
                 ", shortWord='" + shortWord + '\'' +
                 ", longWordLenght=" + longWordLenght +
                 ", shortWordLenght=" + shortWordLenght +
                 ", rowLenght=" + rowLenght +
                 ", averageWordLenght=" + averageWordLenght +
-                ", countWords=" + countWords +
                 '}';
     }
 }

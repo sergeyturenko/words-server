@@ -1,6 +1,8 @@
 package com.ls.words.controller;
 
-import com.ls.words.data.FileStatistic;
+
+import com.ls.words.model.FileStatistic;
+import com.ls.words.model.RowStatistic;
 import com.ls.words.service.StatisticService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +38,14 @@ public class StatisticController {
                     produces = {"application/json"})
     public @ResponseBody FileStatistic getFileStatistic(@RequestParam("id") Long id) {
         return statisticService.getById(id);
+    }
+
+
+    @ResponseStatus(value= HttpStatus.OK)
+    @RequestMapping(value    = "/getRowsStatistic", method = RequestMethod.GET,
+            headers  = {"Accept=application/json"},
+            produces = {"application/json"})
+    public @ResponseBody List<RowStatistic> getRowsStatistic(@RequestParam("id") Integer id) {
+        return statisticService.getAllRowsFileStatistic(id);
     }
 }

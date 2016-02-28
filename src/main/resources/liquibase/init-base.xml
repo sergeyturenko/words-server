@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="Init tables" author="sergey" runOnChange="false">
+
+        <sql splitStatements="true" dbms="h2">
+            DROP SEQUENCE IF EXISTS hibernate_sequence;
+            DROP TABLE IF EXISTS Flow_ServiceData CASCADE;
+        </sql>
+
+        <createSequence incrementBy="1" sequenceName="hibernate_sequence" startValue="20000"/>
+
+        <!-- ####################################################################################################### -->
+        <createTable tableName="FILESTATISTIC">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="fileName"         type="VARCHAR(255)"/>
+            <column name="longWord"          type="VARCHAR(50)"/>
+            <column name="shortWord"         type="VARCHAR(50)"/>
+            <column name="longWordLenght"    type="INTEGER"/>
+            <column name="shortWordLenght"   type="INTEGER"/>
+            <column name="rowLenght"         type="INTEGER"/>
+            <column name="averageWordLenght" type="INTEGER"/>
+            <column name="countWords" type="INTEGER"/>
+        </createTable>
+
+        <!-- ####################################################################################################### -->
+        <createTable tableName="ROWSTATISTIC">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="extid"            type="INTEGER">
+                <constraints nullable="false" foreignKeyName="fk_address_employee" references="FILESTATISTIC(id)"/>
+            </column>
+            <column name="longWord"          type="VARCHAR(50)"/>
+            <column name="shortWord"         type="VARCHAR(50)"/>
+            <column name="longWordLenght"    type="INTEGER"/>
+            <column name="shortWordLenght"   type="INTEGER"/>
+            <column name="rowLenght"         type="INTEGER"/>
+            <column name="averageWordLenght" type="INTEGER"/>
+            <column name="countWords" type="INTEGER"/>
+        </createTable>
+        
+        <!-- ####################################################################################################### -->
+        <createTable tableName="CNT">
+            <column name="id" type="VARCHAR(25)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="currkeynum" type="INTEGER"></column>
+        </createTable>
+        
+    </changeSet>
+
+    <changeSet id="Add auto increment for H2" author="brunneng" dbms="h2">
+        <addAutoIncrement tableName="FILESTATISTIC" columnName="id" startWith="1" columnDataType="bigint"/>
+        <addAutoIncrement tableName="ROWSTATISTIC" columnName="id" startWith="1" columnDataType="bigint"/>
+    </changeSet>
+
+</databaseChangeLog>
