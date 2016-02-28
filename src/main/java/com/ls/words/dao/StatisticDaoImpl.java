@@ -21,9 +21,6 @@ public class StatisticDaoImpl extends AbstractDao implements StatisticDao{
 
     @Override
     public List<FileStatistic> getAll() {
-//        Criteria criteria = getSession()
-//                .createCriteria(FileStatistic.class);
-//        return criteria.list();
         return getCurrentSession().createCriteria(FileStatistic.class).list();
     }
 

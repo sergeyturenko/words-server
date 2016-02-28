@@ -16,6 +16,7 @@ public class TFileStatistic {
     private Integer shortWordLenght  ;
     private Integer rowLenght        ;
     private Integer averageWordLenght;
+    private Integer countWords       ;
 
     public TFileStatistic() {}
 
@@ -28,6 +29,7 @@ public class TFileStatistic {
         this.shortWordLenght   = fileStatistic.getShortWordLenght  ();
         this.rowLenght         = fileStatistic.getRowLenght        ();
         this.averageWordLenght = fileStatistic.getAverageWordLenght();
+        this.countWords        = fileStatistic.getCountWords       ();
     }
 
     public Integer getId() {
@@ -93,7 +95,13 @@ public class TFileStatistic {
         this.averageWordLenght = averageWordLenght;
     }
 
+    public Integer getCountWords() {
+        return countWords;
+    }
 
+    public void setCountWords(Integer countWords) {
+        this.countWords = countWords;
+    }
 
     @Override
     public String toString() {

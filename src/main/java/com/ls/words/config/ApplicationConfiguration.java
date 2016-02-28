@@ -10,6 +10,5 @@ import org.springframework.context.annotation.*;
 public class ApplicationConfiguration {
 
     ApplicationConfiguration() {
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
 }

@@ -104,7 +104,7 @@ public class FileStatistic {
 
     @JsonManagedReference
     @Fetch(FetchMode.SELECT)
-    @OneToMany(mappedBy = "fileStatistic", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "fileStatistic", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     public List<RowStatistic> getRows() {
         return rows;
     }

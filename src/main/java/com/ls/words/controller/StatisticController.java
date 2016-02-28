@@ -1,6 +1,8 @@
 package com.ls.words.controller;
 
 
+import com.ls.words.dto.TFileStatistic;
+import com.ls.words.dto.TRowStatistic;
 import com.ls.words.model.FileStatistic;
 import com.ls.words.model.RowStatistic;
 import com.ls.words.service.StatisticService;
@@ -28,7 +30,7 @@ public class StatisticController {
     @RequestMapping(value    = "/getAllFileStatistic", method = RequestMethod.GET,
                     headers  = {"Accept=application/json"},
                     produces = {"application/json"})
-    public @ResponseBody List<FileStatistic> getAllFilesStatistic() {
+    public @ResponseBody List<TFileStatistic> getAllFilesStatistic() {
         return statisticService.getAll();
     }
 
@@ -36,7 +38,7 @@ public class StatisticController {
     @RequestMapping(value    = "/getFileStatistic", method = RequestMethod.GET,
                     headers  = {"Accept=application/json"},
                     produces = {"application/json"})
-    public @ResponseBody FileStatistic getFileStatistic(@RequestParam("id") Long id) {
+    public @ResponseBody TFileStatistic getFileStatistic(@RequestParam("id") Long id) {
         return statisticService.getById(id);
     }
 
@@ -45,7 +47,7 @@ public class StatisticController {
     @RequestMapping(value    = "/getRowsStatistic", method = RequestMethod.GET,
             headers  = {"Accept=application/json"},
             produces = {"application/json"})
-    public @ResponseBody List<RowStatistic> getRowsStatistic(@RequestParam("id") Integer id) {
+    public @ResponseBody List<TRowStatistic> getRowsStatistic(@RequestParam("id") Integer id) {
         return statisticService.getAllRowsFileStatistic(id);
     }
 }

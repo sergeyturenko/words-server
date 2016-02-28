@@ -30,7 +30,6 @@ public class WebConfigurer implements ServletContextListener {
         ApplicationContext rootContext;
 
         if (context == null) {
-            System.out.println("No!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
             ctx.register(ApplicationConfiguration.class);
             ctx.setServletContext(servletContext);
@@ -42,7 +41,6 @@ public class WebConfigurer implements ServletContextListener {
         
         servletContext.setAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE, rootContext);
         initSpring(servletContext, rootContext);
-        System.out.println("setContext 3!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
     
     /**
