@@ -10,6 +10,9 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.ServletRegistration;
+/**
+ * Created by Sergey_PC on 25.02.2016.
+ */
 
 public class WebConfigurer implements ServletContextListener {
     

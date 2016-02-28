@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 
 /**
- * Created by turenko on 19.02.2016.
+ * Created by turenko on 25.02.2016.
  */
 @Entity
 @Table(name = "ROWSTATISTIC")

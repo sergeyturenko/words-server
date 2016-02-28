@@ -8,8 +8,4 @@
 
     <context:component-scan base-package="com.ls.words.controller"/>
 
-    <!--bean id="restResponseFactory" class="org.activiti.rest.service.api.RestResponseFactory"/>
-    <bean id="contentTypeResolver" class="org.activiti.rest.common.application.DefaultContentTypeResolver"/-->
-    <bean id="objectMapper" class="com.ls.words.util.ObjectMapperFactory"/>
-
 </beans>

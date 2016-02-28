@@ -28,7 +28,6 @@
         <th>Количество слов</th>
         <th></th>
     </tr>
-
 </table>
 </body>
 </html>

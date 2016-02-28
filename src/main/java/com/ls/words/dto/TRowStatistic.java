@@ -4,7 +4,7 @@ package com.ls.words.dto;
 import com.ls.words.model.RowStatistic;
 
 /**
- * Created by turenko on 19.02.2016.
+ * Created by turenko on 25.02.2016.
  */
 
 public class TRowStatistic {

@@ -13,18 +13,12 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
 
-    <aop:config>
+    <!--aop:config>
         <aop:pointcut id="dao" expression="execution(* com.ls.words.dao.*Dao.*(..))"/>
         <aop:pointcut id="dao_impl" expression="execution(* com.ls.words.dao.*DaoImpl.*(..))"/>
 
         <aop:advisor pointcut-ref="dao" advice-ref="txAdvice"/>
         <aop:advisor pointcut-ref="dao_impl" advice-ref="txAdvice"/>
-    </aop:config>
-
-    <!-- ==============================   DAO   ============================= -->
-    
-    <!--bean id="statisticDaoImpl" class="com.ls.words.dao.StatisticDaoImpl">
-        <property name="sessionFactory" ref="mySessionFactory"/>
-    </bean-->
+    </aop:config-->
 
 </beans>
