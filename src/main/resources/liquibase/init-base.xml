@@ -19,14 +19,14 @@
             <column name="id" type="BIGINT">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="fileName"         type="VARCHAR(255)"/>
-            <column name="longWord"          type="VARCHAR(50)"/>
-            <column name="shortWord"         type="VARCHAR(50)"/>
+            <column name="fileName"          type="VARCHAR(255)"/>
+            <column name="longWord"          type="VARCHAR(150)"/>
+            <column name="shortWord"         type="VARCHAR(150)"/>
             <column name="longWordLenght"    type="INTEGER"/>
             <column name="shortWordLenght"   type="INTEGER"/>
             <column name="rowLenght"         type="INTEGER"/>
             <column name="averageWordLenght" type="INTEGER"/>
-            <column name="countWords" type="INTEGER"/>
+            <column name="countWords"        type="INTEGER"/>
         </createTable>
 
         <!-- ####################################################################################################### -->
@@ -37,8 +37,8 @@
             <column name="extid"            type="INTEGER">
                 <constraints nullable="false" foreignKeyName="fk_address_employee" references="FILESTATISTIC(id)"/>
             </column>
-            <column name="longWord"          type="VARCHAR(50)"/>
-            <column name="shortWord"         type="VARCHAR(50)"/>
+            <column name="longWord"          type="VARCHAR(150)"/>
+            <column name="shortWord"         type="VARCHAR(150)"/>
             <column name="longWordLenght"    type="INTEGER"/>
             <column name="shortWordLenght"   type="INTEGER"/>
             <column name="rowLenght"         type="INTEGER"/>

@@ -17,7 +17,7 @@
 
             <property name="properties">
                 <map>
-                    <entry key="processEngineConfiguration.databaseSchemaUpdate" value="true"/>
+                    <entry key="processEngineConfiguration.databaseSchemaUpdate" value="false"/>
                 </map>
             </property>
         </bean>
